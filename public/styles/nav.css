@@ -1,0 +1,16 @@
+nav {
+  display: flex; 
+  height: 120px; 
+  width: 100%; 
+  color: #FFFFFF; 
+  background-color: #3b5998; 
+  padding: 1.5em;  
+}
+
+#tweeterNav { 
+  display:flex;
+  font-family: 'Bungee', cursive, sans-serif;   
+  font-size: 36px; 
+  align-self: flex-end;  
+  border: 3px dashed red; 
+}
