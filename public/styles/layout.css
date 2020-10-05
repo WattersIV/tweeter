@@ -11,13 +11,18 @@ html {
 }
 
 main {
-  width: 90%; 
+  display: flex;
   justify-content: center; 
   background-color: inherit;  
-  background-image: inherit; 
+  background-image: inherit;  
+  color: white; 
+  width: 90%;
 }
 
-body {
+body { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px; 
