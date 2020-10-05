@@ -11,6 +11,5 @@ nav {
   display:flex;
   font-family: 'Bungee', cursive, sans-serif;   
   font-size: 36px; 
-  align-self: flex-end;  
-  border: 3px dashed red; 
+  align-self: flex-end;
 }

@@ -10,14 +10,20 @@ html {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
+main {
+  width: 90%; 
+  justify-content: center; 
+  background-color: inherit;  
+  background-image: inherit; 
+}
 
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px; 
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif; 
+  background-color: #000514;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");  
+  color: white;
 }
 
