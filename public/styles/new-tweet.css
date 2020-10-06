@@ -4,8 +4,20 @@
   border: none; 
   background-color: inherit;
   overflow: hidden;
-  border-bottom: 3px salmon solid; 
+  border-bottom: 3px salmon solid;  
 }
+.new-tweet {
+  display: flex;  
+  flex-direction: column;
+  width: 100%; 
+  align-items: stretch; 
+}  
+
+.profile {
+  display: flex; 
+  justify-content: flex-start; 
+}
+
 #counter { 
   display: flex;
   font-family: 'Bungee', cursive; 
@@ -22,4 +34,61 @@
 .buttons {
   display: flex;  
   justify-content: space-between;
+} 
+
+#tweet-text {
+  color: white;
+}  
+
+main {
+  display: flex; 
+  flex-direction: column;  
+  align-items: center; 
+} 
+
+.tweets {
+  display: flex;
+  width: 100%;  
+  flex-direction: column; 
+} 
+
+.tweets header {
+  display: flex; 
+  justify-content: space-between; 
+  flex-direction: row; 
+  height: 80%;
 }
+
+.tweets article {
+  display: flex; 
+  flex-direction: column; 
+  width: 100%;
+}   
+
+.tweets footer {
+  display: flex; 
+  border-top: 3px black solid;  
+  font-size: 16px; 
+} 
+
+.tweets:hover {
+  box-shadow: 10px 10px rgb(160, 160, 160);
+   
+} 
+.tweets #username {
+  visibility: hidden;
+} 
+
+.tweets:hover #username {
+  visibility: visible;
+}
+
+.tweets div {
+  display: flex; 
+  flex-direction: row;
+} 
+.tweets footer {
+  display: flex; 
+  flex-direction: row; 
+  justify-content: space-between;
+} 
