@@ -75,11 +75,11 @@ main {
   box-shadow: 10px 10px rgb(160, 160, 160);
    
 } 
-.tweets #username {
+.tweets .username {
   visibility: hidden;
 } 
 
-.tweets:hover #username {
+.tweets:hover .username {
   visibility: visible;
 }
 
@@ -92,3 +92,9 @@ main {
   flex-direction: row; 
   justify-content: space-between;
 } 
+
+nav {
+  position: sticky; 
+  top: 4em; 
+  width: 100%;
+}
