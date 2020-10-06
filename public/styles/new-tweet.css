@@ -1,0 +1,25 @@
+.new-tweet > form > textarea { 
+  display: flex;
+  width: 100%;
+  border: none; 
+  background-color: inherit;
+  overflow: hidden;
+  border-bottom: 3px salmon solid; 
+}
+#counter { 
+  display: flex;
+  font-family: 'Bungee', cursive;
+}
+#button { 
+  display:flex;
+  color: white;
+  background-color: #4056A1;
+  font-size: 24px;
+  padding: 5px 10px;
+  font-family: 'Bungee', cursive;
+} 
+
+.buttons {
+  display: flex;  
+  justify-content: space-between;
+}
