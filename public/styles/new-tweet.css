@@ -92,9 +92,3 @@ main {
   flex-direction: row; 
   justify-content: space-between;
 } 
-
-nav {
-  position: sticky; 
-  top: 4em; 
-  width: 100%;
-}
