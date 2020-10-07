@@ -38,12 +38,18 @@ $(document).ready(() => {
 $(document).ready(() => {
   $('form').on('submit', event => { 
     event.preventDefault()
-    console.log('Ajax call starting')  
-    $.ajax({
-      type: 'POST', 
-      url: '/tweets', 
-      data: $('#tweet-text').serialize() 
-    }).then(() => {loadTweets()}) 
+    const postData = $('#tweet-text').val()
+    if (isValidTweet(postData) === true) {  
+      $.ajax({
+        type: 'POST', 
+        url: '/tweets', 
+        data: $('#tweet-text').serialize() 
+      }).then(() => {loadTweets()}) 
+    } else if (isValidTweet(postData) === false) {
+      alert('Tweet is empty')
+    } else {
+      alert('Tweet is too long')
+    }
   }) 
 }) 
 
@@ -57,4 +63,14 @@ const loadTweets = () => {
     const newToOld = data.reverse() 
     renderTweets(newToOld)
   })
+} 
+
+const isValidTweet = (tweet) => {
+  if (tweet.length >= 1 && tweet.length <= 140) {
+    return true;
+  } else if (tweet.length > 140) {
+    return 'too long'
+  } else {
+    return false;
+  }
 }
