@@ -1,28 +1,3 @@
-const tweetData = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ]
-
 //Takes in tweet data and formats it in html
   function createTweetElement (tweet) {   
   let output = ''  
@@ -59,7 +34,7 @@ $(document).ready(() => {
   renderTweets(tweetData)
 })  
 
-
+//processes the post req for tweet then starts get process to post it
 $(document).ready(() => {
   $('form').on('submit', event => { 
     event.preventDefault()
@@ -68,6 +43,18 @@ $(document).ready(() => {
       type: 'POST', 
       url: '/tweets', 
       data: $('#tweet-text').serialize() 
-    }).then (() => {console.log('DONE')}) 
+    }).then(() => {loadTweets()}) 
   }) 
-})
+}) 
+
+//get route for new tweet
+const loadTweets = () => {
+  $.ajax({
+    type: 'GET', 
+    url: '/tweets', 
+    dataType: 'JSON'
+  }).then(function (data) {
+    const newToOld = data.reverse() 
+    renderTweets(newToOld)
+  })
+}
