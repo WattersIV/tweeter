@@ -44,7 +44,10 @@ $(document).ready(() => {
         type: 'POST', 
         url: '/tweets', 
         data: $('#tweet-text').serialize() 
-      }).then(() => {loadTweets()}) 
+      }).then(() => {
+        loadTweets(); 
+        $('form').trigger('reset')
+        $('#counter').text(140)}) 
     } else if (isValidTweet(postData) === false) {
       alert('Tweet is empty')
     } else {
