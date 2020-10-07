@@ -23,7 +23,8 @@ const tweetData = [
     }
   ]
 
-function createTweetElement (tweet) {   
+//Takes in tweet data and formats it in html
+  function createTweetElement (tweet) {   
   let output = ''  
   console.log(tweet)
   output += '<article>'
@@ -45,6 +46,7 @@ function createTweetElement (tweet) {
   return output;
 } 
 
+//Takes in formatted html text and renders it on the page
 const renderTweets = function(tweets) {
   for (const tweet of tweets) {
     let $tweet = createTweetElement(tweet)
@@ -52,7 +54,20 @@ const renderTweets = function(tweets) {
   } 
 } 
 
+//When doc loaded calls renderTweets 
 $(document).ready(() => { 
-  console.log('Loaded')
   renderTweets(tweetData)
 })  
+
+
+$(document).ready(() => {
+  $('form').on('submit', event => { 
+    event.preventDefault()
+    console.log('Ajax call starting')  
+    $.ajax({
+      type: 'POST', 
+      url: '/tweets', 
+      data: $('#tweet-text').serialize() 
+    }).then (() => {console.log('DONE')}) 
+  }) 
+})
