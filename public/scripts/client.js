@@ -1,25 +1,3 @@
-function createTweetElement (tweet) {   
-  let output = ''  
-  console.log(tweet)
-  output += '<article>'
-  output += '<header>'
-  output += '<div>'
-  output += `<img src="${tweet.user.avatars}" style="width: 2em; height: 2em;">` 
-  output += `<p> ${tweet.user.name} </p>` 
-  output += '</div>'
-  output += `<p class = "username"> ${tweet.user.handle}` 
-  output += '</header>' 
-  output += `<p> ${tweet.content.text} </p>` 
-  output += '<footer>' 
-  output += `<p> ${tweet.created_at} </p>` 
-  output += '<p> img 1 </p>'
-  output += '<p> img 2 </p>'
-  output += '<p> img 3 </p>'
-  output += '</div> </footer> </article>' 
-  return output;
-} 
-
-
 const tweetData = [
   {
     "user": {
@@ -44,8 +22,37 @@ const tweetData = [
       "created_at": 1461113959088
     }
   ]
+
+function createTweetElement (tweet) {   
+  let output = ''  
+  console.log(tweet)
+  output += '<article>'
+  output += '<header>'
+  output += '<div>'
+  output += `<img src="${tweet.user.avatars}" style="width: 2em; height: 2em;">`
+  output += `<p> ${tweet.user.name} </p>` 
+  output += '</div>'
+  output += `<p class ="username"> ${tweet.user.handle}` 
+  output += '</header>' 
+  output += `<p> ${tweet.content.text} </p>` 
+  output += '<footer>' 
+  output += `<p> ${tweet.created_at} </p>` 
+  output += '<div>'
+  output += '<p> img 1 </p>'
+  output += '<p> img 2 </p>'
+  output += '<p> img 3 </p>'
+  output += '</div> </footer> <div> </div> </article>'  
+  return output;
+} 
+
+const renderTweets = function(tweets) {
+  for (const tweet of tweets) {
+    let $tweet = createTweetElement(tweet)
+    $(`.tweets`).append($tweet) 
+  } 
+} 
+
 $(document).ready(() => { 
-  const $tweet = createTweetElement(tweetData[0]) 
-  console.log($tweet)
-  $(`#tweets-container`).append($tweet) 
-})
+  console.log('Loaded')
+  renderTweets(tweetData)
+})  

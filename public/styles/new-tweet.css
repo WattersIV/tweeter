@@ -62,7 +62,8 @@ main {
 .tweets article {
   display: flex; 
   flex-direction: column; 
-  width: 100%;
+  width: 100%; 
+  margin-bottom: 1vh;
 }   
 
 .tweets footer {
@@ -71,15 +72,15 @@ main {
   font-size: 16px; 
 } 
 
-.tweets:hover {
+article:hover {
   box-shadow: 10px 10px rgb(160, 160, 160);
    
 } 
-.tweets .username {
+article .username {
   visibility: hidden;
 } 
 
-.tweets:hover .username {
+article:hover .username {
   visibility: visible;
 }
 
@@ -91,4 +92,4 @@ main {
   display: flex; 
   flex-direction: row; 
   justify-content: space-between;
-} 
+}
