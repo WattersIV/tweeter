@@ -1,16 +1,15 @@
 //Takes in tweet data and formats it in html
   function createTweetElement (tweet) {   
   let output = ''  
-  console.log(tweet)
   output += '<article>'
   output += '<header>'
   output += '<div>'
   output += `<img src="${tweet.user.avatars}" style="width: 2em; height: 2em;">`
   output += `<p> ${tweet.user.name} </p>` 
   output += '</div>'
-  output += `<p class ="username"> ${tweet.user.handle}` 
+  output += `<p class ="username"> ${tweet.user.handle} </p>` 
   output += '</header>' 
-  output += `<p> ${tweet.content.text} </p>` 
+  output += `<p> ${escape(tweet.content.text)} </p>` 
   output += '<footer>' 
   output += `<p> ${tweet.created_at} </p>` 
   output += '<div>'
@@ -21,6 +20,12 @@
   return output;
 } 
 
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 //Takes in formatted html text and renders it on the page
 const renderTweets = function(tweets) {
   for (const tweet of tweets) {
@@ -28,14 +33,11 @@ const renderTweets = function(tweets) {
     $(`.tweets`).append($tweet) 
   } 
 } 
-
-//When doc loaded calls renderTweets 
-$(document).ready(() => { 
-  renderTweets(tweetData)
-})  
+ 
 
 //processes the post req for tweet then starts get process to post it
-$(document).ready(() => {
+$(document).ready(() => {  
+  loadTweets() //When doc loaded calls renderTweets 
   $('form').on('submit', event => { 
     event.preventDefault()
     const postData = $('#tweet-text').val()
@@ -45,16 +47,31 @@ $(document).ready(() => {
         url: '/tweets', 
         data: $('#tweet-text').serialize() 
       }).then(() => {
-        loadTweets(); 
+        loadTweets()
         $('form').trigger('reset')
         $('#counter').text(140)}) 
     } else if (isValidTweet(postData) === false) {
-      alert('Tweet is empty')
+      $('form').slideDown(() => {
+        sendAlert('Your tweet is empty')
+      })
     } else {
-      alert('Tweet is too long')
+      $('form').slideDown(()=> {
+        sendAlert('Your tweet is too long')
+      })
     }
   }) 
 }) 
+
+const sendAlert = function (errorType) {
+  $('.error').text(errorType) 
+  $('.error').slideDown(() => {
+    setTimeout(() => {
+      $('.error').slideUp(() => {  //Slides up after 3 sec delay following failed submit
+        //do nothing
+      })      
+    }, 3000);
+  })
+}
 
 //get route for new tweet
 const loadTweets = () => {
@@ -63,11 +80,13 @@ const loadTweets = () => {
     url: '/tweets', 
     dataType: 'JSON'
   }).then(function (data) {
+    $(`.tweets`).html('')
     const newToOld = data.reverse() 
     renderTweets(newToOld)
   })
 } 
 
+//Valid-True Too long-False Too Short-String 
 const isValidTweet = (tweet) => {
   if (tweet.length >= 1 && tweet.length <= 140) {
     return true;
