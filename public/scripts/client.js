@@ -63,7 +63,7 @@ $(document).ready(() => {
 }) 
 
 const sendAlert = function (errorType) {
-  $('.error').text(errorType) 
+  $('.error').text(errorType)             
   $('.error').slideDown(() => {
     setTimeout(() => {
       $('.error').slideUp(() => {  //Slides up after 3 sec delay following failed submit

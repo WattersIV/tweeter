@@ -1,10 +1,12 @@
-nav {
-  display: flex; 
+#navBar {
+  display: flex;  
+  align-self: start;
   height: 120px; 
   width: 100%; 
   color: #FFFFFF; 
   background-color: #3b5998; 
-  padding: 1.5em;
+  padding: 1.5em; 
+  padding-bottom: 0;
   position: sticky; 
   top: 0em; 
   width: 100%;

@@ -1,11 +1,10 @@
-header {
+.profile {
   display: flex; 
   height: 400px; 
   width: 100%;  
   flex-direction: column; 
   align-items: center; 
-  background-color: #000514;
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png"); 
+  background-color: gray;
   flex-grow: 1; 
   color: white;
 } 

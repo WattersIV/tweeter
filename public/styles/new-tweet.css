@@ -9,7 +9,7 @@
 .new-tweet {
   display: flex;  
   flex-direction: column;
-  width: 100%; 
+  width: 90%; 
   align-items: stretch; 
 }  
 
@@ -48,7 +48,7 @@ main {
 
 .tweets {
   display: flex;
-  width: 100%;  
+  width: 90%;  
   flex-direction: column; 
 } 
 
@@ -92,4 +92,17 @@ article:hover .username {
   display: flex; 
   flex-direction: row; 
   justify-content: space-between;
+} 
+
+h2 {
+  font-size: 2em;
+} 
+
+h3 {
+  font-size: 1.2em;
+}
+
+/* Large devices (laptops/desktops, 1024px and up) */
+@media only screen and (min-width: 1024px) {
+  
 }

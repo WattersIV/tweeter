@@ -30,37 +30,39 @@
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@1,300;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span id="tweeterNav">tweeter</span>
-    </nav> 
-    <header class="profile">
-      <div> 
-        <!-- Profile picture-->
-          <img id= "avatar"src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div> 
-        <!-- User Name-->
-          <h2>Steppy</h2>
-      </div>
-  </header>
-    <main class="container">  
-      <!-- New Tweet Form -->
-      <div class='error'></div>
-      <section class="new-tweet"> 
-        <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets">
-          <textarea name="text" id="tweet-text" placeholder="What's on your noggin?"></textarea>
-          <div class="buttons">
-            <button id="sendButton" type="submit">Tweet</button>
-            <output id="counter" name="counter" class="counter" for="tweet-text">140</output>
+      <nav id="navBar">
+        <span id="tweeterNav">tweeter</span>
+      </nav>  
+      <main class="container">  
+        <header class="profile">
+          <div> 
+          <!-- Profile picture-->
+            <img id= "avatar"src="/images/profile-hex.png"> 
           </div>
+          <div> 
+          <!-- User Name-->
+            <h2>Steppy</h2>
+          </div>
+        </header>
+      <!-- New Tweet Form -->
+    <div class='error'></div>
+    <section class="new-tweet"> 
+      <h4>Compose Tweet</h4>
+      <form method="POST" action="/tweets">
+        <textarea name="text" id="tweet-text" placeholder="What's on your noggin?"></textarea>
+        <div class="buttons">
+        <button id="sendButton" type="submit">Tweet</button>
+        <output id="counter" name="counter" class="counter" for="tweet-text">140</output>
+      </div>
         </form>
       </section> 
+      <!-- Format for new tweets-->
       <section class="tweets">
         <article>
           <header> 
