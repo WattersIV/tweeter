@@ -33,3 +33,11 @@ body {
   color: white;
 }
 
+.error {
+  display: none;
+  font-size: 2em; 
+  border: solid red; 
+  background-color: #AA0000;
+  align-self: center; 
+  padding: 0.2em;
+}

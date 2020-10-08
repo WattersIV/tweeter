@@ -34,12 +34,16 @@ const renderTweets = function(tweets) {
   } 
 } 
  
+let errorMsg = false
 
 //processes the post req for tweet then starts get process to post it
 $(document).ready(() => {  
   loadTweets() //When doc loaded calls renderTweets 
   $('form').on('submit', event => { 
-    event.preventDefault()
+    event.preventDefault() 
+    if (errorMsg === true) {
+      slideUp()
+    } 
     const postData = $('#tweet-text').val()
     if (isValidTweet(postData) === true) {  
       $.ajax({
@@ -51,25 +55,31 @@ $(document).ready(() => {
         $('form').trigger('reset')
         $('#counter').text(140)}) 
     } else if (isValidTweet(postData) === false) {
+      errorMsg = true 
       $('form').slideDown(() => {
         sendAlert('Your tweet is empty')
       })
     } else {
       $('form').slideDown(()=> {
+        errorMsg = true 
         sendAlert('Your tweet is too long')
       })
     }
   }) 
 }) 
 
+//Slides up err msg
+const slideUp = function () {
+  $('.error').slideUp(() => {  
+    //do nothing
+  })
+}
+
+//Posts error message and keeps it there until told otherwise
 const sendAlert = function (errorType) {
   $('.error').text(errorType)             
   $('.error').slideDown(() => {
-    setTimeout(() => {
-      $('.error').slideUp(() => {  //Slides up after 3 sec delay following failed submit
-        //do nothing
-      })      
-    }, 3000);
+    //do nothing
   })
 }
 
