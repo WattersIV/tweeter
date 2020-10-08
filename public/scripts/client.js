@@ -20,6 +20,7 @@
   return output;
 } 
 
+//creates safe tweet body
 const escape =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
@@ -105,4 +106,10 @@ const isValidTweet = (tweet) => {
   } else {
     return false;
   }
-}
+} 
+
+$(document).ready(() => { 
+  $('#toTop').on('click', () => { 
+    document.documentElement.scrollTop = 0
+  })
+}) 

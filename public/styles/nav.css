@@ -9,12 +9,28 @@
   padding-bottom: 0;
   position: sticky; 
   top: 0em; 
-  width: 100%;
+  width: 100%; 
+  justify-content: space-between;
 }
 
 #tweeterNav { 
   display:flex;
   font-family: 'Bungee', cursive, sans-serif;   
-  font-size: 36px; 
+  font-size: 2em; 
   align-self: flex-end;
+}
+
+#toTop {
+  font-size: 1em; 
+  flex-shrink: 1; 
+  height: 1.6em; 
+  align-self: flex-end;
+}
+
+#toTop:hover {
+  background-color: grey;
+} 
+
+#toTop:active {
+  background-color: white;
 }
