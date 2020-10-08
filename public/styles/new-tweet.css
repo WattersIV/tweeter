@@ -11,6 +11,7 @@
   flex-direction: column;
   width: 90%; 
   align-items: stretch; 
+  padding-bottom: 1em; 
 }  
 
 .profile {
@@ -46,7 +47,7 @@ main {
   align-items: center; 
 } 
 
-.tweets {
+.content {
   display: flex;
   width: 90%;  
   flex-direction: column; 
@@ -104,5 +105,26 @@ h3 {
 
 /* Large devices (laptops/desktops, 1024px and up) */
 @media only screen and (min-width: 1024px) {
-  
+  main {
+    flex-direction: row; 
+    width: 100%;
+    padding: 2em; 
+    justify-content: space-between; 
+  } 
+  .content {
+    width: calc(90% - 400px);  
+    padding-left: 1em;
+  } 
+  .profile {
+    height: 400px; 
+    width: 400px; 
+    position: sticky;  
+    top: 6em; 
+    align-self: flex-start;
+  } 
+
+  .new-tweet {
+    width: 100%;
+  }
+
 }
