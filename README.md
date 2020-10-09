@@ -15,11 +15,11 @@ This repository is the starter code for the project: Students will fork and clon
 - Express
 - Node 5.10.x or above
 
-Screenshot of the user scrolling UI as the user scrolls
-https://github.com/WattersIV/tweeter/blob/master/public/images/Scroll.png 
+!["Screenshot of the user scrolling UI as the user scrolls"]
+(https://github.com/WattersIV/tweeter/blob/master/public/images/Scroll.png) 
 
-Screenshot of the top of the page
-https://github.com/WattersIV/tweeter/blob/master/public/images/TopOfPage.png 
+!["Screenshot of the top of the page"]
+(https://github.com/WattersIV/tweeter/blob/master/public/images/TopOfPage.png)
 
-Screenshot of one of the error messages from an invalid tweet
-https://github.com/WattersIV/tweeter/blob/master/public/images/errorMsg.png
+!["Screenshot of one of the error messages from an invalid tweet"]
+(https://github.com/WattersIV/tweeter/blob/master/public/images/errorMsg.png)
