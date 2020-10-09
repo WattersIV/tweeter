@@ -1,5 +1,6 @@
 //Takes in tweet data and formats it in html
-  function createTweetElement (tweet) {   
+  function createTweetElement (tweet) {    
+  const tweetCreation = tweet.created_at 
   let output = ''  
   output += '<article>'
   output += '<header>'
@@ -7,15 +8,15 @@
   output += `<img src="${tweet.user.avatars}" style="width: 2em; height: 2em;">`
   output += `<p> ${tweet.user.name} </p>` 
   output += '</div>'
-  output += `<p class ="username"> ${tweet.user.handle} </p>` 
+  output += `<p class="username"> ${tweet.user.handle} </p>` 
   output += '</header>' 
   output += `<p> ${escape(tweet.content.text)} </p>` 
   output += '<footer>' 
-  output += `<p> ${tweet.created_at} </p>` 
-  output += '<div>'
-  output += '<img class="interact" src="../images/png/flag.png">'                    
-  output += '<img class="interact" id="retweet" src="../images/png/retweet.png">' 
-  output += '<img class="interact" id="heart" src="../images/png/heart.png">' 
+  output += `<p class="time"> ${time(tweetCreation)} </p>` 
+  output += '<div class="interact">'
+  output += '<i class="fas fa-flag"></i>'
+  output += '<i class="fas fa-retweet"></i>'
+  output += '<i class="fas fa-heart"></i>'
   output += '</div> </footer> <div> </div> </article>'  
   return output;
 } 
@@ -114,3 +115,21 @@ $(document).ready(() => {
     document.documentElement.scrollTop = 0
   })
 })  
+
+// Formats the ms into the appropriate metric
+const time = created => {
+  const timePassed = Date.now() - created;
+  if (timePassed < 1000) {
+    return "Just now";
+  } else if (timePassed < 60000) {
+    return Math.floor(timePassed / 1000) + " second(s)";
+  } else if (timePassed < 360000) {
+    return Math.floor(timePassed / 60000) + " minute(s)";
+  } else if (timePassed < 86400000) {
+    return Math.floor(timePassed / 360000) + " hour(s)";
+  } else if (timePassed < 31536000000) {
+    return Math.floor(timePassed / 86400000) + " day(s)";
+  } else {
+    return Math.floor(timePassed / 31536000000) + " year(s)";
+  }
+};

@@ -9,7 +9,7 @@
 .new-tweet {
   display: flex;  
   flex-direction: column;
-  width: 90%; 
+  width: 100%; 
   align-items: stretch; 
   padding-bottom: 1em; 
 }  
@@ -103,6 +103,15 @@ h2 {
 
 h3 {
   font-size: 1.2em;
+} 
+
+.interact  { 
+  align-items: flex-end; 
+} 
+
+.fas {
+  height: 1.5em; 
+  width: 1.5em;
 }
 
 /* Large devices (laptops/desktops, 1024px and up) */
@@ -127,15 +136,5 @@ h3 {
 
   .new-tweet {
     width: 100%;
-  }
-
-  .interact {
-    justify-content: space-between; 
-    height: 2em; 
-    width: 2em; 
-    align-self: flex-end; 
-  }  
-  .interact:hover {
-    background: rgb(232, 229, 229);
   }
 } 
