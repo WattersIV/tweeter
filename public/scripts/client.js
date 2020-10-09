@@ -17,7 +17,6 @@
   output += '<img class="interact" id="retweet" src="../images/png/retweet.png">' 
   output += '<img class="interact" id="heart" src="../images/png/heart.png">' 
   output += '</div> </footer> <div> </div> </article>'  
-  
   return output;
 } 
 
@@ -54,12 +53,17 @@ $(document).ready(() => {
         data: $('#tweet-text').serialize() 
       }).then(() => {
         loadTweets()
-        sendAlert('Your tweet is empty')
-      })
-    } else {
-      $('form').slideDown(()=> {
-        errorMsg = true 
-        sendAlert('Your tweet is too long')
+        $('form').trigger('reset') 
+        $('#counter').text(140)}) 
+      } else if (isValidTweet(postData) === false) {
+        errorMsg = true
+        $('form').slideDown(() => {
+          sendAlert('Your tweet is empty')
+        })
+      } else {
+        $('form').slideDown(()=> {
+          errorMsg = true 
+          sendAlert('Your tweet is too long')
       })
     }
   }) 
