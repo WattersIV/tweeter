@@ -13,10 +13,11 @@
   output += '<footer>' 
   output += `<p> ${tweet.created_at} </p>` 
   output += '<div>'
-  output += '<p> img 1 </p>'
-  output += '<p> img 2 </p>'
-  output += '<p> img 3 </p>'
+  output += '<img class="interact" src="../images/png/flag.png">'                    
+  output += '<img class="interact" id="retweet" src="../images/png/retweet.png">' 
+  output += '<img class="interact" id="heart" src="../images/png/heart.png">' 
   output += '</div> </footer> <div> </div> </article>'  
+  
   return output;
 } 
 
@@ -53,11 +54,6 @@ $(document).ready(() => {
         data: $('#tweet-text').serialize() 
       }).then(() => {
         loadTweets()
-        $('form').trigger('reset')
-        $('#counter').text(140)}) 
-    } else if (isValidTweet(postData) === false) {
-      errorMsg = true 
-      $('form').slideDown(() => {
         sendAlert('Your tweet is empty')
       })
     } else {
@@ -108,8 +104,9 @@ const isValidTweet = (tweet) => {
   }
 } 
 
+//Scroll to top on click
 $(document).ready(() => { 
   $('#toTop').on('click', () => { 
     document.documentElement.scrollTop = 0
   })
-}) 
+})  
