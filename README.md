@@ -17,7 +17,7 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
-!["Screenshot of the user scrolling UI as the user scrolls"](https://github.com/WattersIV/tweeter/blob/master/public/images/Scroll.png) 
+!["Screenshot of the user scrolling UI as the user scrolls"](https://github.com/WattersIV/tweeter/blob/master/public/images/mobile.png) 
 
 !["Screenshot of the top of the page"](https://github.com/WattersIV/tweeter/blob/master/public/images/TopOfPage.png)
 
